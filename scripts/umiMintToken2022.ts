@@ -38,7 +38,7 @@ async function main() {
         throw new Error('Missing parameter: token2022 address is required');
     }
 
-    const token2022 = publicKey(tokenAddress); // Replace with the token you created 
+    const token2022 = publicKey(tokenAddress);
 
     const token = findAssociatedTokenPda(umi, {
         mint: token2022,
