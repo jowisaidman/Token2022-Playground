@@ -32,7 +32,13 @@ async function main() {
     umi.use(signerIdentity(signer));
     umi.use(signerPayer(signer));
 
-    const token2022 = publicKey("GHf8bqWAee3KYaVDhdYygqkpujK6wCZjWpDYPN8NX65i");
+    const tokenAddress = process.argv[2];
+
+    if (!tokenAddress) {
+        throw new Error('Missing parameter: token2022 address is required');
+    }
+
+    const token2022 = publicKey(tokenAddress); // Replace with the token you created 
 
     const token = findAssociatedTokenPda(umi, {
         mint: token2022,
